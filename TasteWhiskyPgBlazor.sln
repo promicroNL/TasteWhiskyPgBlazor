@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{51697C2A-14AE-430A-89D2-4CF7714CE734}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiskyApi", "backend\WhiskyApi\WhiskyApi.csproj", "{98853A5E-F92A-4C89-B643-7CB051EB5CE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{7D90EC3C-AEC8-4A12-983A-4AD8E13E17D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiskyFrontend", "frontend\WhiskyFrontend\WhiskyFrontend.csproj", "{9BBBDCDC-7196-4D9C-993A-35442AEF1114}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98853A5E-F92A-4C89-B643-7CB051EB5CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98853A5E-F92A-4C89-B643-7CB051EB5CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98853A5E-F92A-4C89-B643-7CB051EB5CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98853A5E-F92A-4C89-B643-7CB051EB5CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BBBDCDC-7196-4D9C-993A-35442AEF1114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BBBDCDC-7196-4D9C-993A-35442AEF1114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BBBDCDC-7196-4D9C-993A-35442AEF1114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BBBDCDC-7196-4D9C-993A-35442AEF1114}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98853A5E-F92A-4C89-B643-7CB051EB5CE0} = {51697C2A-14AE-430A-89D2-4CF7714CE734}
+		{9BBBDCDC-7196-4D9C-993A-35442AEF1114} = {7D90EC3C-AEC8-4A12-983A-4AD8E13E17D4}
+	EndGlobalSection
+EndGlobal

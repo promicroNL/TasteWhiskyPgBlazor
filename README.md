@@ -96,7 +96,11 @@ Make sure the PostgreSQL service is up before running the app.
    ./scripts/install_and_mount_pg.sh
    ```
 
-4. Run the backend and frontend (instructions will be specific per implementation)
+4. Run the backend and frontend:
+```bash
+dotnet run --project backend/WhiskyApi &
+dotnet run --project frontend/WhiskyFrontend
+```
 
 ---
 

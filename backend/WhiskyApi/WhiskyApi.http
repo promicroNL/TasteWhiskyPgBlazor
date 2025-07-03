@@ -1,0 +1,6 @@
+@WhiskyApi_HostAddress = http://localhost:5122
+
+GET {{WhiskyApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
