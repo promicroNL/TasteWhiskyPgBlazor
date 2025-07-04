@@ -1,5 +1,5 @@
 @page "/notes"
-@inject HttpClient Http
+@inject IHttpClientFactory HttpClientFactory
 
 <h1>Tasting Notes</h1>
 
@@ -27,7 +27,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        notes = await Http.GetFromJsonAsync<List<TastingNote>>("http://localhost:5122/notes");
+        var client = HttpClientFactory.CreateClient("NotesAPI");
+        notes = await client.GetFromJsonAsync<List<TastingNote>>("notes");
     }
 
     private class TastingNote
