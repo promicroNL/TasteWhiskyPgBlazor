@@ -24,6 +24,11 @@
     font-size: 1.1rem;
 }
 
+.logo {
+    max-height: 2rem;
+    height: auto;
+}
+
 .bi {
     display: inline-block;
     position: relative;
