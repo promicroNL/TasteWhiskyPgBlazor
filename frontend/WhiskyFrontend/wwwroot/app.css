@@ -1,11 +1,11 @@
 html, body {
     font-family: 'Georgia', serif;
     background-color: #000;
-    color: #FFD700;
+    color: #fff;
 }
 
 a, .btn-link {
-    color: #FFD700;
+    color: #fff;
 }
 
 .btn-primary {

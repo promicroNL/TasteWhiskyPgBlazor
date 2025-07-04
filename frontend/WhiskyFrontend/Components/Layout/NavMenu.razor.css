@@ -16,12 +16,17 @@
 }
 
 .top-row {
-    height: 3.5rem;
+    height: 200px;
     background-color: rgba(0,0,0,0.4);
 }
 
 .navbar-brand {
     font-size: 1.1rem;
+}
+
+.logo {
+    max-height: 175px;
+    height: auto;
 }
 
 .bi {
