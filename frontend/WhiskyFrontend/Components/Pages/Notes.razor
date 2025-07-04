@@ -1,0 +1,43 @@
+@page "/notes"
+@inject HttpClient Http
+
+<h1>Tasting Notes</h1>
+
+@if (notes == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <ul class="notes-list">
+        @foreach (var n in notes)
+        {
+            <li>
+                <h3>@n.Distillery (@n.Age) - @n.Score/100</h3>
+                <p><strong>Nose:</strong> @n.Nose</p>
+                <p><strong>Palate:</strong> @n.Palate</p>
+                <p><strong>Finish:</strong> @n.Finish</p>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<TastingNote>? notes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        notes = await Http.GetFromJsonAsync<List<TastingNote>>("http://localhost:5122/notes");
+    }
+
+    private class TastingNote
+    {
+        public int Id { get; set; }
+        public string Distillery { get; set; } = string.Empty;
+        public int Age { get; set; }
+        public string Nose { get; set; } = string.Empty;
+        public string Palate { get; set; } = string.Empty;
+        public string Finish { get; set; } = string.Empty;
+        public int Score { get; set; }
+    }
+}
