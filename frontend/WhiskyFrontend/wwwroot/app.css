@@ -1,15 +1,17 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Georgia', serif;
+    background-color: #000;
+    color: #FFD700;
 }
 
 a, .btn-link {
-    color: #006bb7;
+    color: #FFD700;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    color: #000;
+    background-color: #FFD700;
+    border-color: #e5c100;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -49,3 +51,7 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.add-btn { position: fixed; bottom: 20px; right: 20px; width: 70px; height: 70px; font-size: 2rem; }
+.bg-gold { background-color: #FFD700; color: #000; }
+

@@ -102,6 +102,16 @@ dotnet run --project backend/WhiskyApi &
 dotnet run --project frontend/WhiskyFrontend
 ```
 
+
+5. Optional if you run PostgreSQL locally on windows, use this docker command
+
+```pwsh
+docker run --name postgres16 `
+  -e POSTGRES_PASSWORD=yourpassword `
+  -v ${PWD}/pgdata:/var/lib/postgresql/data `
+  -p 5432:5432 `
+  -d postgres:16
+```
 ---
 
 ## 🧠 Future Ideas
