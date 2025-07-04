@@ -16,7 +16,7 @@
 }
 
 .top-row {
-    height: 3.5rem;
+    height: 200px;
     background-color: rgba(0,0,0,0.4);
 }
 
@@ -25,7 +25,7 @@
 }
 
 .logo {
-    max-height: 2rem;
+    max-height: 175px;
     height: auto;
 }
 
