@@ -51,3 +51,7 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.add-btn { position: fixed; bottom: 20px; right: 20px; width: 70px; height: 70px; font-size: 2rem; }
+.bg-gold { background-color: #FFD700; color: #000; }
+

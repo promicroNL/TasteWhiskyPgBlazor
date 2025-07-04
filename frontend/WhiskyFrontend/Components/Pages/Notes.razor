@@ -14,21 +14,104 @@ else
         {
             <li>
                 <h3>@n.Distillery (@n.Age) - @n.Score/100</h3>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-gold" role="progressbar" style="width: @(n.Score)%" aria-valuenow="@n.Score" aria-valuemin="0" aria-valuemax="100">@n.Score</div>
+                </div>
                 <p><strong>Nose:</strong> @n.Nose</p>
                 <p><strong>Palate:</strong> @n.Palate</p>
                 <p><strong>Finish:</strong> @n.Finish</p>
+                <p><strong>Taster:</strong> @n.Taster</p>
             </li>
         }
     </ul>
 }
 
+<button class="btn btn-primary btn-lg rounded-circle position-fixed add-btn" @onclick="ShowAddForm">+</button>
+
+@if (showAdd)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color:rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title">New Tasting Note</h5>
+                    <button type="button" class="btn-close" @onclick="CloseAddForm"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm Model="newNote" OnValidSubmit="SubmitNote">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <div class="mb-3">
+                            <label class="form-label">Distillery</label>
+                            <InputText class="form-control" @bind-Value="newNote.Distillery" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Age</label>
+                            <InputNumber class="form-control" @bind-Value="newNote.Age" disabled="@noAge" />
+                            <div class="form-check">
+                                <InputCheckbox class="form-check-input" @bind-Value="noAge" />
+                                <label class="form-check-label">Non-age statement</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Score</label>
+                            <InputNumber class="form-control" @bind-Value="newNote.Score" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Taster</label>
+                            <InputText class="form-control" @bind-Value="newNote.Taster" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nose</label>
+                            <InputTextArea class="form-control" @bind-Value="newNote.Nose" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Palate</label>
+                            <InputTextArea class="form-control" @bind-Value="newNote.Palate" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Finish</label>
+                            <InputTextArea class="form-control" @bind-Value="newNote.Finish" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     private List<TastingNote>? notes;
+    private bool showAdd;
+    private bool noAge;
+    private TastingNote newNote = new();
 
     protected override async Task OnInitializedAsync()
     {
         var client = HttpClientFactory.CreateClient("NotesAPI");
         notes = await client.GetFromJsonAsync<List<TastingNote>>("notes");
+    }
+
+    private void ShowAddForm() => showAdd = true;
+    private void CloseAddForm()
+    {
+        showAdd = false;
+        newNote = new();
+        noAge = false;
+    }
+
+    private async Task SubmitNote()
+    {
+        if (noAge) newNote.Age = 0;
+
+        var client = HttpClientFactory.CreateClient("NotesAPI");
+        var res = await client.PostAsJsonAsync("notes", newNote);
+        if (res.IsSuccessStatusCode)
+        {
+            notes = await client.GetFromJsonAsync<List<TastingNote>>("notes");
+            CloseAddForm();
+        }
     }
 
     private class TastingNote
@@ -40,5 +123,6 @@ else
         public string Palate { get; set; } = string.Empty;
         public string Finish { get; set; } = string.Empty;
         public int Score { get; set; }
+        public string Taster { get; set; } = string.Empty;
     }
 }
